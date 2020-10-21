@@ -77,6 +77,11 @@ public class UpiPaymentModule extends ReactContextBaseJavaModule implements Acti
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
         final JSONObject responseData = new JSONObject();
         try {
+            if(requestCode != REQUEST_CODE)
+{
+return;
+}
+
             if (data == null) {
                 responseData.put("status", FAILURE);
                 responseData.put("message", "No action taken");
